@@ -1,0 +1,8 @@
+include:
+  - project: reifnir-public-projects/iac/job-templates
+    ref: main
+    file: /gitlab/terraform-pipeline-default.yaml
+
+variables:
+  # No lower environments for Git repos, so only one state file for this project
+  TERRAFORM_STATE_KEY: $CI_PROJECT_PATH/X.tfstate

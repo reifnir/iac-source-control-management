@@ -1,1 +1,22 @@
 # This one is going to be a generate-all-of-the child-jerbs-from-config kind of things
+stages:
+  - generate
+  - trigger
+
+generate-child-pipeline:
+  stage: generate
+  image: python:3.14-slim
+  script:
+    - pip install --quiet -r generate-pipelines/requirements.txt
+    - python generate-pipelines/generate_pipeline.py --output child-pipeline.yml
+  artifacts:
+    paths:
+      - child-pipeline.yml
+
+trigger-child-pipeline:
+  stage: trigger
+  trigger:
+    include:
+      - artifact: child-pipeline.yml
+        job: generate-child-pipeline
+    strategy: depend

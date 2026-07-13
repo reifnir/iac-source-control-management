@@ -1,3 +1,6 @@
+generate:
+	python generate-pipelines/generate_pipeline.py --output child-pipeline.yml
+
 init:
 	rm -rf ./terraform/.terraform
 	terraform -chdir=./terraform init \

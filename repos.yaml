@@ -1,0 +1,44 @@
+---
+group_paths:
+  reifnir-public-projects:
+
+  reifnir-public-projects/iac:
+    aws-automation-identity:
+      description: Manages the AWS identity that we'll use for automation jobs
+
+    aws-access-management:
+      description: >-
+        Need a project to declaratively manage AWS IAM Identity Center
+        users and permission set assignments
+      automation-access:
+        - "*"
+
+    aws-organization-build-out:
+      description: >-
+        Place to manage the overall deployment and progress in setting up
+        my AWS org (with a few shortcuts for cost savings reasons)
+
+    dns:
+      description: >-
+        Need a place to manage DNS zones and more-stable DNS records like
+        email, etc
+      automation-access:
+        - Reifnir-Aggregator
+
+    job-templates:
+      description: >-
+        Job templates for Gitlab initially, but GitHub later if I need to
+        run some automation there at some point
+      # automation-access:
+      #   - Reifnir-Dev
+
+    source-control-management:
+      description: >-
+        Need a project to manage creating and syncing repos across Gitlab
+        and GitHub, and the tedious work of setting default properties, etc
+
+    # This is going to be a module at the account-level config
+    terraform-state:
+      description: >-
+        Need a place to store terraform state, so have to bootstrap it
+        somewhere

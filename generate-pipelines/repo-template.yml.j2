@@ -7,6 +7,10 @@ workflow:
 stages:
   - projects
 
+variables:
+  TF_VAR_github_admin_token: $GITHUB_ADMIN_TOKEN
+  TF_VAR_gitlab_token: $GITLAB_AUTOMATION_TOKEN
+
 {% for project in projects %}
 
 {{ project.full_project_path | tojson }}:

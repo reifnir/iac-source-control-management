@@ -23,8 +23,6 @@ variables:
         file: /gitlab/terraform-pipeline-default.yaml
     strategy: depend
   variables:
-    # For now, don't apply anything. Let's just look at the job plans
-    APPLY_TERRAFORM_WHEN: never
     TF_VAR_gitlab_parent_group_path: {{ project.group_path | tojson }}
     TF_VAR_gitlab_project_name: {{ project.project_name | tojson }}
     TF_VAR_project_description: {{ project.description | tojson }}

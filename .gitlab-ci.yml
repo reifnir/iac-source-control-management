@@ -4,9 +4,19 @@ workflow:
     - if: $CI_MERGE_REQUEST_ID
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
+include:
+  - project: reifnir-public-projects/iac/job-templates
+    ref: main
+    file: /gitlab/checkov.yaml
+
 stages:
+  - scan
   - generate
   - trigger
+
+checkov:
+  extends: .checkov
+  stage: scan
 
 generate-child-pipeline:
   stage: generate
@@ -26,3 +36,6 @@ trigger-child-pipeline:
       - artifact: child-pipeline.yml
         job: generate-child-pipeline
     strategy: depend
+  needs:
+    - checkov
+    - generate-child-pipeline

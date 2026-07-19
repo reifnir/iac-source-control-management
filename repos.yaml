@@ -25,6 +25,11 @@ group_paths:
       automation-access:
         - Reifnir-Aggregator
 
+    gitlab-runner-local:
+      description: >-
+        Don't want to pay for more minutes on the included runners, so making
+        it easier to run one locally while I'm fiddling.
+
     job-templates:
       description: >-
         Job templates for Gitlab initially, but GitHub later if I need to

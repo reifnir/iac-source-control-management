@@ -1,41 +1,10 @@
-# This one is going to be a generate-all-of-the child-jerbs-from-config kind of things
-workflow:
-  rules:
-    - if: $CI_MERGE_REQUEST_ID
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-
 include:
   - project: reifnir-public-projects/iac/job-templates
     ref: main
-    file: /gitlab/checkov.yaml
+    file: /gitlab/terraform-pipeline-default.yaml
 
-stages:
-  - scan
-  - generate
-  - trigger
-
-checkov:
-  extends: .checkov
-  stage: scan
-
-generate-child-pipeline:
-  stage: generate
-  image: python:3.14-slim
-  script:
-    - pip install --quiet -r generate-pipelines/requirements.txt
-    - python generate-pipelines/generate_pipeline.py --output child-pipeline.yml
-    - cat child-pipeline.yml
-  artifacts:
-    paths:
-      - child-pipeline.yml
-
-trigger-child-pipeline:
-  stage: trigger
-  trigger:
-    include:
-      - artifact: child-pipeline.yml
-        job: generate-child-pipeline
-    strategy: depend
-  needs:
-    - checkov
-    - generate-child-pipeline
+variables:
+  # Only the one state file here, so use a default key that is unique to this project
+  TERRAFORM_STATE_KEY: $CI_PROJECT_PATH/terraform.tfstate
+  TF_VAR_github_admin_token: $GITHUB_ADMIN_TOKEN
+  TF_VAR_gitlab_token: $GITLAB_AUTOMATION_TOKEN

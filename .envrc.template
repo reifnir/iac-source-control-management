@@ -1,9 +1,6 @@
 export TF_VAR_github_admin_token=""
 export TF_VAR_gitlab_token=""
-export TF_VAR_gitlab_parent_group_path="reifnir-public-projects/iac"
-export TF_VAR_gitlab_project_name="source-control-management"
-export TF_VAR_project_description="Need a project to manage creating and syncing repos across Gitlab and GitHub, and the tedious work of setting default properties, etc."
 
 export TERRAFORM_STATE_REGION="us-east-1"
 export TERRAFORM_STATE_BUCKET="reifnir-root-terraform-state-primary"
-export TERRAFORM_STATE_KEY="reifnir-public-projects/iac/source-control-management/${TF_VAR_gitlab_parent_group_path}/${TF_VAR_gitlab_project_name}.tfstate"
+export TERRAFORM_STATE_KEY="reifnir-public-projects/iac/source-control-management/terraform.tfstate"

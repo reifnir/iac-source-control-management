@@ -88,4 +88,8 @@ resource "gitlab_project" "this" {
   topics                                           = []
   visibility_level                                 = "public"
   wiki_access_level                                = "disabled"
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }

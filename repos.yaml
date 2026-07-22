@@ -6,18 +6,6 @@ group_paths:
     aws-automation-identity:
       description: Manages the AWS identity that we'll use for automation jobs
 
-    aws-access-management:
-      description: >-
-        Need a project to declaratively manage AWS IAM Identity Center
-        users and permission set assignments
-      automation-access:
-        - "*"
-
-    aws-organization-build-out:
-      description: >-
-        Place to manage the overall deployment and progress in setting up
-        my AWS org (with a few shortcuts for cost savings reasons)
-
     dns:
       description: >-
         Need a place to manage DNS zones and more-stable DNS records like
@@ -47,3 +35,17 @@ group_paths:
       description: >-
         Need a place to store terraform state, so have to bootstrap it
         somewhere
+
+  reifnir-public-projects/iac/aws-organization:
+    aws-access-management:
+      description: >-
+        Need a project to declaratively manage AWS IAM Identity Center
+        users and permission set assignments
+      automation-access:
+        - "*"
+
+    org-build-out:
+      description: >-
+        Place to manage the overall deployment and progress in setting up
+        my AWS org (with a few shortcuts for cost savings reasons)
+

@@ -8,6 +8,9 @@ locals {
         "description"       = "Need a place to manage DNS zones and more-stable DNS records like email, etc"
         "automation-access" = ["Reifnir-Aggregator"]
       }
+      "github-fiddling" = {
+        "description" = "I have a lot more experience with GitLab automation than GitHub, so I need a project to use as a sandbox for learning."
+      }
       "gitlab-runner-local" = {
         "description" = "Don't want to pay for more minutes on the included runners, so making it easier to run one locally while I'm fiddling."
       }

@@ -1,5 +1,11 @@
 locals {
   repos = {
+    "reifnir-public-projects" = {
+      "local-llm" = {
+        "description" = "A project to manage the local LLMs that I run on my own hardware, and the automation around them"
+      }
+    }
+
     "reifnir-public-projects/iac" = {
       "aws-automation-identity" = {
         "description" = "Manages the AWS identity that we'll use for automation jobs"
